@@ -64,38 +64,32 @@ form.addEventListener('submit', handleSubmit);
 function handleSubmit(event) {
   event.preventDefault();
   const inputValue = event.target.elements.input.value.trim();
-console.log(event);
+
 
   if (inputValue === '') {
     iziToast.warning({
       title: 'Caution',
       message: 'The field is empty, please type your request',
   });
-    return console.log('empty');
+  console.log('empty')
+    return ;
   }
-    console.log(inputValue);
-
-    fetchImages(inputValue)
-      .then((response) => {
-  if (response.total === 0) {
-            iziToast.error({
-              // title: 'Error',
-              message: 'Sorry, there are no images matching your search query. Please try again!',
-            });
-            return;
-      }})
-      .then((response) => renderImages(response))
-      
-    fetchImages(inputValue)
-    console.log(fetchImages(inputValue));
     
-        iziToast.settings({
-      timeout: 1000,
-      position: 'topRight',
-      });
-console.log(renderImages(inputValue));
-}
-gallery.insertAdjacentHTML("beforeend", fetchImages)
 
-console.log(typeof (gallery.insertAdjacentHTML("beforeend", fetchImages)));
+    fetchImages(inputValue)
+      .then((response) => {console.log(response)
+  if (response.total === 0) { 
+      throw new Error(response.status);
+      }
+    return response.hits;
+  })
+      .then((images) => {gallery.insertAdjacentHTML("beforeend", renderImages(images))}
+      )
+      .catch(() => {iziToast.error ({
+        // title: 'Error',
+        message: 'Sorry, there are no images matching your search query. Please try again!',
+      })}
+        )
+}   
+
 
