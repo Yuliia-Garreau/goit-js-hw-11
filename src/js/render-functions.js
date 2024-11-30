@@ -20,40 +20,41 @@ export const renderImages = (images) => {
           <li class="item-gallery">
           <a class="link-gallery" href="${image.largeImageURL}">
             <img  
+            src="${image.webformatURL}"
             class="img-gallery"
-              src="${image.webformatURL}" 
+               
               alt="${image.tags}"
+              title=""
             />
-          </a>
-            <ul>
-              <li>
-                <p class="likes">Likes
-                  <span>${image.likes}</span>
-                </p>
+          
+            <ul class="list-info">
+              
+            <li class="list-item-info">
+                <p class="info-title">Likes</p>
+                <p class="info-value">${image.likes}</p>
+            </li>
+
+              <li class="list-item-info">
+                <p class="info-title">Views</p>
+                <p class="info-value">${image.views}</p>
               </li>
-              <li>
-                <p class="views">Views
-                  <span>${image.views}</span>
-                </p>
+
+              <li class="list-item-info">
+                <p class="info-title">Comments</p>
+                <p class="info-value">${image.comments}</p>
               </li>
-              <li>
-                <p class="comments">Comments
-                  <span>${image.comments}</span>
-                </p>
+
+              <li class="list-item-info">
+                <p class="info-title">Downloads</p>
+                <p class="info-value">${image.downloads}</p>
               </li>
-              <li>
-                <p class="downloads">Downloads
-                  <span>${image.downloads}</span>
-                </p>
-              </li>
+
             </ul>
+            </a>
           </li>
         
       `)
     .join("");
-    // gallery.insertAdjacentHTML("beforeend", markup);
-    console.log(typeof (images));
-    
 }
 
 // {
@@ -64,20 +65,4 @@ export const renderImages = (images) => {
 // "views": 868179,
 // "comments": 336,
 // "downloads": 543018,
-
-//   "id": 1045782,
-//   "pageURL": "https://pixabay.com/photos/cat-animal-cat-portrait-cats-eyes-1045782/",
-//   "type": "photo",  
-//   "previewURL": "https://cdn.pixabay.com/photo/2015/11/16/14/43/cat-1045782_150.jpg",
-//   "previewWidth": 150,
-//   "previewHeight": 102,  
-//   "webformatWidth": 640,
-//   "webformatHeight": 437,  
-//   "imageWidth": 2064,
-//   "imageHeight": 1410,
-//   "imageSize": 1268850,  
-//   "collections": 24102,
-//   "user_id": 127419,
-//   "user": "cocoparisienne",
-//   "userImageURL": "https://cdn.pixabay.com/user/2023/10/15/14-40-46-737_250x250.jpeg"
 // },
