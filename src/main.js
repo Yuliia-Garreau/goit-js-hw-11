@@ -50,8 +50,10 @@ function handleSubmit(event) {
     fetchImages(inputValue)
       .then((response) => {
   if (response.total === 0) { 
+    gallery.innerHTML = "";
       throw new Error();
       }
+      
       loader.style.display = 'none';
     return response.hits;
   })
